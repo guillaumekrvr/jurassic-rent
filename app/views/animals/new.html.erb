@@ -1,0 +1,14 @@
+<h1>nouveau pet</h1>
+
+<%= simple_form_for @animal do |f| %>
+  <%= f.input :name %>
+  <%= f.input :age %>
+  <%= f.input :specie %>
+  <%= f.input :diary %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :city %>
+  <%= f.input :price_per_day %>
+  <%= f.input :size %>
+  <%= f.button :submit %>
+<% end %>

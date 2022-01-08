@@ -1,1 +1,11 @@
-<h1>Top</h1>
+<h1> Voici tous les animaux dispo </h1>
+
+  <ul>
+    <% @animals.each do |animal| %>
+    <li>
+
+    <p><%= animal.name %></p>
+    <p><%= animal.size %></p>
+    <p><%= animal.description %></p>
+    <% end %></li>
+  </ul>
