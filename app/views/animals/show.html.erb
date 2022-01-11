@@ -1,0 +1,9 @@
+<h1> <%= @animal.name %> </h1>
+<p> <%= @animal.description %></p>
+
+<%= link_to 'back to list', animals_path%>
+
+<%= link_to "Delete",
+            animal_path(@animal),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
