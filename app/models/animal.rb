@@ -1,6 +1,7 @@
 class Animal < ApplicationRecord
   has_many :reviews
   has_many :bookings
+  has_many_attached :photos
   belongs_to :user
 
   validates :name, :specie, :address, :city, :price_per_day, presence: true

@@ -2,7 +2,6 @@ class AnimalsController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
   before_action :find_animal, only: %i[update destroy show edit]
 
-
   def index
     @animals = Animal.all
   end
@@ -36,7 +35,7 @@ class AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :age, :specie, :diary, :description, :address, :city, :price_per_day, :size)
+    params.require(:animal).permit(:name, :age, :specie, :diary, :description, :address, :city, :price_per_day, :size, photos: [])
   end
 
   def find_animal
