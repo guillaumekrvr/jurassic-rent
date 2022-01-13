@@ -36,15 +36,15 @@ puts "User saved"
   animal.save!
   puts "Animal saved"
 
-  # booking = Booking.new(
-  #  status: "validate",
- # start_date: Faker::Date.forward(days: 23),
- # end_date: Faker::Date.forward(days: 35),
- # price_booking: Faker::Number.within(range: 1..3),
- # animal: animal,
-  # user: user
-  # )
-  # booking.save!
-  # puts "Booking saved"
+  booking = Booking.new(
+    status: "validate",
+    start_date: Faker::Date.forward(days: 23),
+    end_date: Faker::Date.forward(days: 35),
+    price_booking: Faker::Number.within(range: 1..3),
+    animal: animal,
+    user: user
+  )
+  booking.save!
+  puts "Booking saved"
 
 end
