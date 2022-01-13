@@ -4,8 +4,10 @@
     <% @bookings.each do |booking| %>
     <li>
 
-    <h2><%= booking.id %></h2>
+    <h2><%= booking.animal.name %></h2>
     <p><%= booking.status %></p>
-    <p><%= booking.price_booking %></p>
+    <p>Price paid : <%= booking.price_booking %>€</p>
+    <p>starting date : <%= booking.start_date %></p>
+    <p>ending date : <%= booking.end_date %></p>
     <% end %></li>
   </ul>
