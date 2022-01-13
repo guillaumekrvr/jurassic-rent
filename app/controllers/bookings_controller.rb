@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.animal = @animal
     @booking.save!
+    redirect_to bookings_path
   end
 
   def edit
