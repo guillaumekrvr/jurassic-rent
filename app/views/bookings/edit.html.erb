@@ -1,9 +1,16 @@
-<h1>Edit your Booking</h1>
-
-<%= simple_form_for [ @booking ] do |f| %>
-  <%= f.input :status %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :price_booking %>
-  <%= f.button :submit %>
-<% end %>
+<div class ="container-general">
+  <div class="cover mb-4 d-flex align-items-center justify-content-center">
+    <div class="text-center">
+      <h1> Edit your Booking </h1>
+    </div>
+  </div>
+  <div class="container py-5">
+      <%= simple_form_for [ @booking ] do |f| %>
+        <%= f.input :status %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.input :price_booking %>
+        <%= f.button :submit, class: "btn-flat" %>
+      <% end %>
+  </div>
+</div>
