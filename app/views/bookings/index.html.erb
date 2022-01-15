@@ -14,6 +14,12 @@
         <p>Price paid : <%= booking.price_booking %>€</p>
         <p>starting date : <%= booking.start_date %></p>
         <p>ending date : <%= booking.end_date %></p>
+        <p class="btn btn-primary"><%= link_to 'Add a review', new_animal_review_path(booking.animal) %> </p>
       </div>
     <% end %>
 </div>
+
+
+
+<%= link_to 'back to list', animals_path%>
+<%= link_to 'Propose an animal', new_animal_path%>

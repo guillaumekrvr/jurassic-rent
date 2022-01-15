@@ -4,6 +4,7 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = Animal.all
+    @animals_user = Animal.all.where(user_id: current_user)
   end
 
   def new

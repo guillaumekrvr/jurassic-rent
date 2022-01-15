@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
     @animal = Animal.find(params[:animal_id])
     @review.animal = @animal
     @review.save!
+    redirect_to animal_path(@animal.id)
   end
 
   # def edit
