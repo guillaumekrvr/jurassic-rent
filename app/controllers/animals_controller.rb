@@ -22,6 +22,7 @@ class AnimalsController < ApplicationController
 
   def update
     @animal.update(animal_params)
+    redirect_to animals_path
   end
 
   def destroy
