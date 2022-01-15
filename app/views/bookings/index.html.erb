@@ -1,13 +1,19 @@
-<h1>All My Bookings</h1>
+<div class ="container-general">
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+    <div class="text-center">
+      <h1>All My Bookings</h1>
+    </div>
+  </div>
 
-<ul>
     <% @bookings.each do |booking| %>
-    <li>
-
-    <h2><%= booking.animal.name %></h2>
-    <p><%= booking.status %></p>
-    <p>Price paid : <%= booking.price_booking %>€</p>
-    <p>starting date : <%= booking.start_date %></p>
-    <p>ending date : <%= booking.end_date %></p>
-    <% end %></li>
-  </ul>
+      <div class="card-booking">
+        <h2><%= booking.animal.name %></h2>
+        <p><%= booking.animal.description %></p>
+        <p><%= booking.animal.photos.first %></p>
+        <p><%= booking.status %></p>
+        <p>Price paid : <%= booking.price_booking %>€</p>
+        <p>starting date : <%= booking.start_date %></p>
+        <p>ending date : <%= booking.end_date %></p>
+      </div>
+    <% end %>
+</div>
