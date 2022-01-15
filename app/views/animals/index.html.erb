@@ -10,10 +10,13 @@
       <% @animals.each do |animal| %>
       <li>
 
-      <p><%= animal.name %></p>
+      <p><%=link_to animal.name, animal_path(animal) %></p>
       <p><%= animal.size %> cm </p>
       <p><%= animal.description %></p>
-      <p><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
+      <p><%= animal.price_per_day %>€</p>
+      <p><%= animal.specie %></p>
+      <p><%= animal.id.photo %></p>
+      <p class="btn btn-primary"><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
       <% end %></li>
     </ul>
 </div>

@@ -5,6 +5,8 @@
 <% end %>
 
 <%= link_to 'back to list', animals_path%>
+<%= link_to 'edit this animal', edit_animal_path%>
+<%= link_to 'Book this animal', new_animal_booking_path(@animal)%>
 
 <%= link_to "Delete",
             animal_path(@animal),
