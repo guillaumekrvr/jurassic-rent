@@ -22,6 +22,7 @@ class AnimalsController < ApplicationController
 
   def update
     @animal.update(animal_params)
+    redirect_to animals_path
   end
 
   def destroy
@@ -35,7 +36,7 @@ class AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :age, :specie, :diary, :description, :address, :city, :price_per_day, :size, photos: [])
+    params.require(:animal).permit(:name, :age, :specie, :diary, :description, :address, :price_per_day, :size, photos: [])
   end
 
   def find_animal

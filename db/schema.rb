@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_13_181858) do
+ActiveRecord::Schema.define(version: 2022_01_15_103114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 2022_01_13_181858) do
     t.string "diary"
     t.text "description"
     t.string "address"
-    t.string "city"
     t.integer "price_per_day"
     t.integer "size"
     t.bigint "user_id", null: false
