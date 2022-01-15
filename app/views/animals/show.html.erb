@@ -1,5 +1,6 @@
 <h1> <%= @animal.name %> </h1>
 <p> <%= @animal.description %></p>
+<p> <%= @animal.animal_id.review.rating %></p>
 <% @animal.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>

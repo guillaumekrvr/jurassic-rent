@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
   before_action :find_booking, only: %i[update destroy show edit]
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.all.where(user_id: current_user)
   end
 
   def new

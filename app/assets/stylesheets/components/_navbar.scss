@@ -6,8 +6,36 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  display: flex;
 }
 
+// .navbar-lewagon .navbar-text {
+//   color: #4A4A4A;
+//   padding: 8px 24px;
+//   font-weight: lighter;
+//   opacity: 0.6;
+// }
+
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 50px;
+}
+
+.navbar-lewagon .fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.navbar-lewagon .nav-link {
+  color: #4A4A4A;
+  padding: 8px 24px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-lewagon .nav-link:hover {
+  opacity: 1;
 }
