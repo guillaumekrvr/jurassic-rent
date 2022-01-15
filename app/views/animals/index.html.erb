@@ -5,15 +5,15 @@
   </div>
 </div>
 
-<div class="container py-5">
-    <ul>
-      <% @animals.each do |animal| %>
-      <li>
-
-      <p><%= animal.name %></p>
-      <p><%= animal.size %> cm </p>
-      <p><%= animal.description %></p>
-      <p><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
-      <% end %></li>
-    </ul>
+<div>
+  <% @animals.each do |animal| %>
+    <p><%= animal.name %></p>
+    <p><%= animal.size %> cm </p>
+    <p><%= animal.description %></p>
+    <p><%= animal.address %></p>
+    <p><%= animal.city %></p>
+    <p><%= animal.price_per_day %>€</p>
+    <p><%= animal.id.photo %></p>
+    <p class="btn btn-primary"><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
+  <% end %></li>
 </div>
