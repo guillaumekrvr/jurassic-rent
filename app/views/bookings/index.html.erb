@@ -4,16 +4,18 @@
       <h1>All My Bookings</h1>
     </div>
   </div>
-
-    <% @bookings.each do |booking| %>
-      <div class="card-booking">
-        <h2><%= booking.animal.name %></h2>
-        <p><%= booking.animal.description %></p>
-        <p><%= booking.animal.photos.first %></p>
-        <p><%= booking.status %></p>
-        <p>Price paid : <%= booking.price_booking %>€</p>
-        <p>starting date : <%= booking.start_date %></p>
-        <p>ending date : <%= booking.end_date %></p>
-      </div>
-    <% end %>
+  <div class="card-booking-container">
+    <div class="cards-booking">
+        <% @bookings.each do |booking| %>
+          <div class="card-booking">
+            <h2><%= booking.animal.name %></h2>
+            <p><%= booking.animal.description %></p>
+            <p><%= booking.status %></p>
+            <p>Price paid : <%= booking.price_booking %>€</p>
+            <p>starting date : <%= booking.start_date %></p>
+            <p>ending date : <%= booking.end_date %></p>
+          </div>
+        <% end %>
+    </div>
+  </div>
 </div>

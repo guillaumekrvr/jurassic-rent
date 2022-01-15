@@ -1,29 +1,29 @@
 // Specific CSS for your home-page
 .centered-text-img {
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
   color: white;
   font-size: 90px ;
-  font-size: bold;
+  font-weight: bold;
 }
 .centered-p-img {
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
   color: white;
-  font-size: 50px ;
-  font-size: bold;
+  font-size: 20px ;
+  font-weight: bold;
+  opacity: 7;
 }
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 200px 0;
+  padding: 150px 0;
+}
+
+.container-banner {
+  width: 900px;
+  margin: auto;
+  justify-content : space-around;
 }
 
 .background-img-banner {
   background-image: asset-url("Jurassic-rent-home-banner.jpg");
-  height: 1000px;
+  height: 900px;
+  opacity: 5;
 }
