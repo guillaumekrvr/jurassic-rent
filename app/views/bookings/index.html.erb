@@ -5,6 +5,8 @@
     </div>
   </div>
 
+  <div class="card-booking-container">
+    <div class="cards-booking">
     <% @bookings.each do |booking| %>
       <div class="card-booking">
         <h2><%= booking.animal.name %></h2>
@@ -14,9 +16,12 @@
         <p>Price paid : <%= booking.price_booking %>€</p>
         <p>starting date : <%= booking.start_date %></p>
         <p>ending date : <%= booking.end_date %></p>
-        <p class="btn btn-primary"><%= link_to 'Add a review', new_animal_review_path(booking.animal) %> </p>
+        <p class="btn-flat"><%= link_to 'Add a review', new_animal_review_path(booking.animal) %> </p>
       </div>
     <% end %>
+    </div>
+  </div>
+
 </div>
 
 
