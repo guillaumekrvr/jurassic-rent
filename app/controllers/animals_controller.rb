@@ -4,6 +4,15 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = Animal.all
+
+    @markers = @animals.geocoded.map do |animal|
+      {
+        lat: animal.latitude,
+        lng: animal.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { animal: animal }),
+        image_url: helpers.asset_url('Marqueur def v2.png')
+      }
+    end
   end
 
   def new
