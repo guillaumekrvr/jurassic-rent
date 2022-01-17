@@ -4,6 +4,16 @@
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 
+  <% @animal.reviews.each do |review| %>
+    <li>
+    <%= review.comment %>
+    <%= review.rating %>
+  <% end %>
+</li>
+
+
+
+
 <%= link_to 'back to list', animals_path%>
 <%= link_to 'edit this animal', edit_animal_path%>
 <%= link_to 'Book this animal', new_animal_booking_path(@animal)%>

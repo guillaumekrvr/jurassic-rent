@@ -5,22 +5,36 @@
   </div>
 </div>
 
-<div class="container py-5">
-    <ul>
-      <% @animals.each do |animal| %>
-      <li>
+<div class="main-container py-5">
 
-      <p><%=link_to animal.name, animal_path(animal) %></p>
-      <p><%= animal.size %> cm </p>
-      <p><%= animal.description %></p>
-      <p><%= animal.price_per_day %>€</p>
-      <p><%= animal.specie %></p>
-      <p class="btn btn-primary"><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
-      <% end %></li>
-    </ul>
+  <div class="container-animal">
+
+    <div class="card-animal">
+
+      <div class="card-img">
+          <% @animals.each do |animal| %>
+          <% animal.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill %>
+          <% end %>
+      </div>
+
+      <div class="card-info">
+          <p><%=link_to animal.name, animal_path(animal) %></p>
+          <p> Taille :<%= animal.size %> cm </p>
+          <p><%= animal.description %></p>
+          <p><%= animal.price_per_day %>€</p>
+          <p><%= animal.specie %></p>
+          <p><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
+          <% end %>
+      </div>
+      <hr style="width:50%;text-align:left;margin-left:0">
+    </div>
+  </div>
+
+  <div id="map"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
 </div>
-
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
