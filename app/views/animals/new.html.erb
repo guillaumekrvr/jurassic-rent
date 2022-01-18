@@ -1,19 +1,21 @@
-<div class="container py-5">
- <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-    <h3>Nouveau pet</h3>
-      <%= simple_form_for @animal do |f| %>
-        <%= f.input :name %>
-        <%= f.input :age %>
-        <%= f.input :specie %>
-        <%= f.input :diary %>
-        <%= f.input :description %>
-        <%= f.input :address %>
-        <%= f.input :price_per_day %>
-        <%= f.input :size %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
-        <%= f.button :submit, class: "btn-flat" %>
-      <% end %>
-   </div>
+<div class="container-general">
+  <div class="container py-5 padding-top-3">
+    <div class="row">
+      <div class="col-12 col-md-6 offset-lg-3">
+        <h1>Add your new animal</h1>
+          <%= simple_form_for @animal do |f| %>
+            <%= f.input :name %>
+            <%= f.input :age %>
+            <%= f.input :specie %>
+            <%= f.input :diary %>
+            <%= f.input :description %>
+            <%= f.input :address %>
+            <%= f.input :price_per_day %>
+            <%= f.input :size %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
+            <%= f.button :submit, class: "btn-flat" %>
+          <% end %>
+      </div>
+    </div>
   </div>
 </div>

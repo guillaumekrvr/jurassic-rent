@@ -1,3 +1,30 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "show";
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  background: #F4F4F4;
+}
+p {
+  font-weight: lighter;
+  font-size: 15px;
+}
+h1, h2, h3 {
+  font-family: 'Varela Round', sans-serif;
+  font-weight: bold;
+}
+h1 {
+  font-size: 50px;
+}
+h2 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+h3 {
+  font-size: 23px;
+}
+.padded {
+  padding: 30px 0;
+}
