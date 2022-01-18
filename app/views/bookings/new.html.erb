@@ -5,9 +5,11 @@
           <h1>Make a booking for <%= @animal.name %></h1>
           <p><%= @animal.specie %></p>
           <p><%= @animal.description %></p>
+          <p id="price-per-day" class="hidden"><%= @animal.price_per_day %></p>
+          <p id="price-total" class="hidden">Total Price :</p>
             <%= simple_form_for [ @animal, @booking ] do |f| %>
-              <%= f.input :start_date %>
-              <%= f.input :end_date %>
+              <p id="beg-date" class="start-date"><%= f.input :start_date %></p>
+              <p class="end-date"><%= f.input :end_date %></p>
               <%= f.button :submit, class: "btn-flat" %>
             <% end %>
         </div>
