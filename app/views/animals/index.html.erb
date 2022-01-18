@@ -1,34 +1,33 @@
-<div class="container-general">
-  <div class="container py-5">
-  <%# <div class="cover mb-4 d-flex align-items-center justify-content-center"> %>
-    <%# <div class="text-center"> %>
-      <h1> Here are the new available pets</h1>
-      <%# <h2>  <%= link_to 'Propose an animal', new_animal_path%>
-      <%# </h2> %>
-    <%# </div> %>
-    <%# </div> %>
-    <div class="row">
-      <div class="cards-animal">
-        <% @animals.each do |animal| %>
-            <div class="card-animal">
-              <div class="card-content-animal">
-                <h4><%=link_to animal.name, animal_path(animal) %></h4>
-                <p><%= animal.specie %></p>
-                <p><%= animal.description %></p>
-                <p><%= animal.size %> cm </p>
-                <p><%= animal.price_per_day %>€</p>
-              </div>
-              <div class="card-actions-animal">
-               <p class="btn-flat-link"><%= link_to 'Book', new_animal_booking_path(animal) %></p>
-              </div>
-          </div>
-        <% end %>
+<div class="main-container py-5">
+
+  <div class="container-animal">
+
+    <div class="card-animal">
+
+      <div class="card-img">
+          <% @animals.each do |animal| %>
+          <% animal.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill %>
+          <% end %>
       </div>
+
+      <div class="card-info">
+          <p><%=link_to animal.name, animal_path(animal) %></p>
+          <p> Taille :<%= animal.size %> cm </p>
+          <p><%= animal.description %></p>
+          <p><%= animal.price_per_day %>€</p>
+          <p><%= animal.specie %></p>
+          <p><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
+          <% end %>
+      </div>
+      <hr style="width:50%;text-align:left;margin-left:0">
     </div>
   </div>
-      <div id="map"
-        style="width: 100%; height: 600px;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+
+  <div id="map"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
 </div>
