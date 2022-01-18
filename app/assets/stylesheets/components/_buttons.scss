@@ -5,6 +5,7 @@
   background: #e64023;
   transition: background 0.3s ease;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .btn-flat:hover {
@@ -27,6 +28,11 @@
   text-decoration: none;
 }
 
-.btn-flat-link:hover {
+.btn-flat-link:hover a {
   color: gray;
+}
+
+.btn-ariane > a {
+  font-size: 10px;
+  text-decoration-color: black;
 }

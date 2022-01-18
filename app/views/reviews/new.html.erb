@@ -1,9 +1,16 @@
 <div class ="container-general">
+ <div class="container py-5">
   <div class="cover mb-4 d-flex align-items-center justify-content-center">
     <div class="text-center">
-      <h1>New review <%= @animal.name %></h1>
+      <h1>Write your review for <%= @animal.name %></h1>
     </div>
-  </div>
+    </div>
+      <div class="picture-animal-center">
+          <% @animal.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, :radius => 20 %>
+          <% end %>
+          <p><%= @animal.specie %></p>
+      </div>
 
   <div class="container py-3">
     <%= simple_form_for [ @animal, @review ] do |f| %>
@@ -12,3 +19,5 @@
       <%= f.button :submit, class: "btn-flat" %>
     <% end %>
   </div>
+ </div>
+</div>

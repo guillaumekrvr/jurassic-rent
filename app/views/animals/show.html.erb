@@ -1,79 +1,103 @@
-<div class="container-general">
+<div class="main-container">
   <div class="container py-5">
-  <div class="animal-presentation">
+      <div class="container-ariane">
+          <p class="btn btn-ariane"> <%= link_to 'back to list', animals_path%></p>
+      </div>
+    <div class="info-detail-animal">
+      <div class="col-md-5">
+        <div class="picture-animal-center">
+          <% @animal.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, :radius => 20 %>
+          <% end %>
+        </div>
+        <div class="container-actions-show">
+          <p class="btn btn-flat"> <%= link_to 'Book this animal', new_animal_booking_path(@animal)%> </p>
+  <%#         <%= link_to 'edit this animal', edit_animal_path%>
+  <%#
+          <%= link_to "Delete",
+                      animal_path(@animal),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
+        </div>
+      </div>
 
-    <div class="picture-animal-center">
-      <% @animal.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, :radius => 20 %>
-      <% end %>
-      <p> <%= @animal.description %></p>
+      <div class="col-md-7">
+        <div class="description-animal">
+          <div class="info-detail-animal">
+            <i class="fas fa-signature"></i>
+            <div class="animal-question-answer">
+              <h3> What is my name?</h3>
+              <p> <%= @animal.name %> </p>
+            </div>
+          </div>
+
+          <div class="info-detail-animal">
+            <i class="fas fa-signature"></i>
+            <div class="animal-question-answer">
+              <h3> More about me?</h3>
+              <p> <%= @animal.description %></p>
+            </div>
+          </div>
+
+          <div class="info-detail-animal">
+            <i class="fas fa-signature"></i>
+            <div class="animal-question-answer">
+              <h3> How old I am?</h3>
+              <p> I am not that old! I am <%= @animal.age %> years old</p>
+            </div>
+          </div>
+
+          <div class="info-detail-animal">
+            <i class="fas fa-signature"></i>
+            <div class="animal-question-answer">
+              <h3> What species I am?</h3>
+              <p> I am a <%= @animal.specie %></p>
+            </div>
+          </div>
+
+          <div class="info-detail-animal">
+            <i class="fas fa-signature"></i>
+            <div class="animal-question-answer">
+              <h3> How can you feed me so that I'll be happy?</h3>
+              <p> <%= @animal.diary %></p>
+            </div>
+          </div>
+
+          <div class="info-detail-animal">
+            <i class="fas fa-signature"></i>
+            <div class="animal-question-answer">
+              <h3> What is my size?</h3>
+              <p> I am <%= @animal.size %> tall</p>
+            </div>
+          </div>
+
+          <div class="info-detail-animal">
+            <i class="fas fa-signature"></i>
+            <div class="animal-question-answer">
+              <h3> How much for a day together?</h3>
+              <p> <%= @animal.price_per_day %>€</p>
+            </div>
+          </div>
+
+          <div class="card-renter">
+            <h2>Few reviews from previous renters</h2>
+              <% if @animal.reviews.empty? %>
+                <p class="btn btn-ariane"><%= link_to 'Be the first one to review this list', new_animal_review_path(@animal) %></p>
+
+              <% else %>
+                <% @animal.reviews.each do |review| %>
+
+                  <%# <% review.rating.times do %>
+                    <%# <%= <i class="fas fa-star star-yellow"></i> %>
+                  <%# <% end %>
+
+                  <%= review.comment %>
+                <% end %>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <div class="description-animal">
-      <div class="info-detail-animal">
-        <i class="fas fa-signature"></i>
-        <div class="animal-question-answer">
-          <h3> What is my name?</h3>
-          <p> <%= @animal.name %> </p>
-        </div>
-      </div>
-
-      <div class="info-detail-animal">
-        <i class="fas fa-signature"></i>
-        <div class="animal-question-answer">
-          <h3> How old I am?</h3>
-          <p> I am not that old! I am <%= @animal.age %> years old</p>
-        </div>
-      </div>
-
-      <div class="info-detail-animal">
-        <i class="fas fa-signature"></i>
-        <div class="animal-question-answer">
-          <h3> What species I am?</h3>
-          <p> I am a <%= @animal.specie %></p>
-        </div>
-      </div>
-
-      <div class="info-detail-animal">
-        <i class="fas fa-signature"></i>
-        <div class="animal-question-answer">
-          <h3> How can you feed me so that I'll be happy?</h3>
-          <p> <%= @animal.diary %></p>
-        </div>
-      </div>
-
-      <div class="info-detail-animal">
-        <i class="fas fa-signature"></i>
-        <div class="animal-question-answer">
-          <h3> What is my size?</h3>
-          <p> I am <%= @animal.size %> tall</p>
-        </div>
-      </div>
-
-      <div class="info-detail-animal">
-        <i class="fas fa-signature"></i>
-        <div class="animal-question-answer">
-          <h3> How much for a day together?</h3>
-          <p> <%= @animal.price_per_day %>€</p>
-        </div>
-      </div>
-
-    <div class="card-renter">
-      <h2>Few reviews from previous renters</h2>
-      <% @animal.reviews.each do |review| %>
-        <li>
-        <%= review.comment %>
-        <%= review.rating %>
-      <% end %>
-    </div>
-    <p class="btn btn-warning"> <%= link_to 'Book this animal', new_animal_booking_path(@animal)%> </p>
-</div>
-    <%= link_to 'back to list', animals_path%>
-    <%= link_to 'edit this animal', edit_animal_path%>
-
-    <%= link_to "Delete",
-                animal_path(@animal),
-                method: :delete,
-                data: { confirm: "Are you sure?" } %>
-  </div>
  </div>
 </div>
