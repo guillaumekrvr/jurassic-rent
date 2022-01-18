@@ -1,14 +1,76 @@
-<h1> <%= @animal.name %> </h1>
-<p> <%= @animal.description %></p>
-<% @animal.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+<div class="container">
+  <div class="animal-presentation">
 
-<%= link_to 'back to list', animals_path%>
-<%= link_to 'edit this animal', edit_animal_path%>
-<%= link_to 'Book this animal', new_animal_booking_path(@animal)%>
+    <div class="picture-animal-center">
+      <% @animal.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, :radius => 20 %>
+      <% end %>
+      <p> <%= @animal.description %></p>
+    </div>
+    <div class="description-animal">
+      <div class="info-detail-animal">
+        <i class="fas fa-signature"></i>
+        <div class="animal-question-answer">
+          <h3> What is my name?</h3>
+          <p> <%= @animal.name %> </p>
+        </div>
+      </div>
 
-<%= link_to "Delete",
-            animal_path(@animal),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+      <div class="info-detail-animal">
+        <i class="fas fa-signature"></i>
+        <div class="animal-question-answer">
+          <h3> How old I am?</h3>
+          <p> I am not that old! I am <%= @animal.age %> years old</p>
+        </div>
+      </div>
+
+      <div class="info-detail-animal">
+        <i class="fas fa-signature"></i>
+        <div class="animal-question-answer">
+          <h3> What species I am?</h3>
+          <p> I am a <%= @animal.specie %></p>
+        </div>
+      </div>
+
+      <div class="info-detail-animal">
+        <i class="fas fa-signature"></i>
+        <div class="animal-question-answer">
+          <h3> How can you feed me so that I'll be happy?</h3>
+          <p> <%= @animal.diary %></p>
+        </div>
+      </div>
+
+      <div class="info-detail-animal">
+        <i class="fas fa-signature"></i>
+        <div class="animal-question-answer">
+          <h3> What is my size?</h3>
+          <p> I am <%= @animal.size %> tall</p>
+        </div>
+      </div>
+
+      <div class="info-detail-animal">
+        <i class="fas fa-signature"></i>
+        <div class="animal-question-answer">
+          <h3> How much for a day together?</h3>
+          <p> <%= @animal.price_per_day %>€</p>
+        </div>
+      </div>
+
+    <div class="card-renter">
+      <h2>Few reviews from previous renters</h2>
+      <% @animal.reviews.each do |review| %>
+        <li>
+        <%= review.comment %>
+        <%= review.rating %>
+      <% end %>
+    </div>
+    <p class="btn btn-warning"> <%= link_to 'Book this animal', new_animal_booking_path(@animal)%> </p>
+</div>
+    <%= link_to 'back to list', animals_path%>
+    <%= link_to 'edit this animal', edit_animal_path%>
+
+    <%= link_to "Delete",
+                animal_path(@animal),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+  </div>
