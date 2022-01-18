@@ -1,4 +1,5 @@
 <div class ="container-general">
+<div class="container py-5">
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
     <div class="text-center">
       <h1>All My Bookings</h1>
@@ -14,17 +15,14 @@
         <p><%= booking.animal.photos.first %></p>
         <p><%= booking.status %></p>
         <p>Price paid : <%= booking.price_booking %>€</p>
-        <p>starting date : <%= booking.start_date %></p>
-        <p>ending date : <%= booking.end_date %></p>
+        <p>Start date : <%= booking.start_date %></p>
+        <p>End date : <%= booking.end_date %></p>
         <p class="btn-flat"><%= link_to 'Add a review', new_animal_review_path(booking.animal) %> </p>
       </div>
     <% end %>
     </div>
   </div>
-
-</div>
-
-
-
 <%= link_to 'back to list', animals_path%>
 <%= link_to 'Propose an animal', new_animal_path%>
+</div>
+</div>

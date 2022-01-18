@@ -1,14 +1,23 @@
-<h1> <%= @animal.name %> </h1>
-<p> <%= @animal.description %></p>
-<% @animal.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+<div class="container-general">
+  <div class="container py-5">
 
-<%= link_to 'back to list', animals_path%>
-<%= link_to 'edit this animal', edit_animal_path%>
-<%= link_to 'Book this animal', new_animal_booking_path(@animal)%>
 
-<%= link_to "Delete",
-            animal_path(@animal),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+      <h1><%= @animal.name %> </h1>
+      <p><%= @animal.specie %></p>
+      <p><%= @animal.description %></p>
+      <p><%= @animal.size %> cm </p>
+      <p><%= @animal.price_per_day %>€</p>
+      <% @animal.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+
+      <%= link_to 'Back to list', animals_path%>
+      <%= link_to 'Edit this animal', edit_animal_path%>
+      <%= link_to 'Book this animal', new_animal_booking_path(@animal)%>
+
+      <%= link_to "Delete",
+                  animal_path(@animal),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+      </div>
+    </div>

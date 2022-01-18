@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @animal = Animal.find(params[:animal_id])
     @booking.user = current_user
     @booking.animal = @animal
-    @booking.save!
+    # @booking.save!
     redirect_to bookings_path
   end
 
