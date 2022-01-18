@@ -3,8 +3,11 @@ class AnimalsController < ApplicationController
   before_action :find_animal, only: %i[update destroy show edit]
 
   def index
-    @animals = Animal.all
-
+    if params[:query].present?
+      @animals = Animal.search_by_name_and_address(params[:query])
+    else
+      @animals = Animal.all
+    end
     @markers = @animals.geocoded.map do |animal|
       {
         lat: animal.latitude,

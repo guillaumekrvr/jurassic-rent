@@ -11,4 +11,13 @@ class Animal < ApplicationRecord
   validates :description, presence: true, length: { maximum: 500 }
   validates :name, presence: true, length: { maximum: 50 }
   validates :age, numericality: { only_integer: true }
+
+  include PgSearch::Model
+
+  pg_search_scope :search_by_name_and_address,
+
+    against: [ :name, :address, :specie ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
