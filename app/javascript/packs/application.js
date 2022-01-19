@@ -35,6 +35,7 @@ document.addEventListener('turbolinks:load', () => {
 import "controllers"
 // import "insert_pricing_in_bookings"
 
+// Year Start
 function yearStart () {
   const pricePerDayString = document.getElementById('price-per-day').innerText;
   const pricePerDay = parseInt(pricePerDayString);
@@ -49,14 +50,19 @@ function yearStart () {
   const selectDayEnd = document.querySelector('#booking_end_date_3i').value;
   const endDate = new Date(`${selectYearEnd}-${selectMonthEnd}-${selectDayEnd}`);
 
-  const difference = Math.round(endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24);
+  const difference = Math.round(endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24).toFixed(1);
 
   const totalPrice = difference * pricePerDay;
 
   const displayPrice = document.querySelector('#price-total');
-  displayPrice.innerHTML = `Total Price : ${totalPrice}€`;
-}
-// Year Start
+
+  if (totalPrice < 0) {
+    displayPrice.innerHTML = `Total Price : `;
+  } else {
+    displayPrice.innerHTML = `Total Price : ${totalPrice}€`;
+  }
+};
+
 document.querySelector('#booking_start_date_1i').addEventListener("change", yearStart);
 
 // Month Start
@@ -74,12 +80,17 @@ document.querySelector('#booking_start_date_2i').addEventListener("change", func
   const selectDayEnd = document.querySelector('#booking_end_date_3i').value;
   const endDate = new Date(`${selectYearEnd}-${selectMonthEnd}-${selectDayEnd}`);
 
-  const difference = Math.round(endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24);
+  const difference = Math.round(endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24).toFixed(1);
 
   const totalPrice = difference * pricePerDay;
 
   const displayPrice = document.querySelector('#price-total');
+
+  if (totalPrice < 0) {
+    displayPrice.innerHTML = `Total Price : `;
+  } else {
   displayPrice.innerHTML = `Total Price : ${totalPrice}€`;
+  }
 });
 
 // Day Start
@@ -97,12 +108,16 @@ document.querySelector('#booking_start_date_3i').addEventListener("change", func
   const selectDayEnd = document.querySelector('#booking_end_date_3i').value;
   const endDate = new Date(`${selectYearEnd}-${selectMonthEnd}-${selectDayEnd}`);
 
-  const difference = Math.round(endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24);
+  const difference = Math.round(endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24).toFixed(1);
 
   const totalPrice = difference * pricePerDay;
 
   const displayPrice = document.querySelector('#price-total');
-  displayPrice.innerHTML = `Total Price : ${totalPrice}€`;
+  if (totalPrice < 0) {
+    displayPrice.innerHTML = `Total Price : `;
+  } else {
+    displayPrice.innerHTML = `Total Price : ${totalPrice}€`;
+  }
 });
 
 // Year End
@@ -120,12 +135,32 @@ document.querySelector('#booking_end_date_1i').addEventListener("change", functi
   const selectDayEnd = document.querySelector('#booking_end_date_3i').value;
   const endDate = new Date(`${input}-${selectMonthEnd}-${selectDayEnd}`);
 
-  const difference = Math.round(endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24);
+  const difference = Math.round(endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24).toFixed(1);
 
   const totalPrice = difference * pricePerDay;
 
   const displayPrice = document.querySelector('#price-total');
-  displayPrice.innerHTML = `Total Price : ${totalPrice}€`;
+  if (difference < 0) {
+    displayPrice.innerHTML = `Total Price : `;
+  } else if (difference < 7) {
+    displayPrice.innerHTML = `Total Price : ${totalPrice}€`;
+  } else {
+    displayPrice.innerHTML = `Total Price : ${totalPrice - (totalPrice * 0.1)}€`;
+  }
+
+  const displayStay = document.querySelector('#stay-day');
+  if (difference < 0) {
+    displayStay.innerHTML = `Number of days :`;
+  } else {
+    displayStay.innerHTML = `Number of days : ${difference}`;
+  }
+
+  const displayDiscount = document.querySelector('#discount-stay');
+  if (difference < 7) {
+    displayDiscount.innerHTML = `Discount for long stay : 0 €`;
+  } else {
+    displayDiscount.innerHTML = `Discount for long stay : ${(totalPrice * 0.1).toFixed(2)} €`;
+  }
 });
 
 // Month End
@@ -143,19 +178,39 @@ document.querySelector('#booking_end_date_2i').addEventListener("change", functi
   const selectDayEnd = document.querySelector('#booking_end_date_3i').value;
   const endDate = new Date(`${selectYearEnd}-${input}-${selectDayEnd}`);
 
-  const difference = Math.round(endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24);
+  const difference = Math.round(endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24).toFixed(1);
 
   const totalPrice = difference * pricePerDay;
 
   const displayPrice = document.querySelector('#price-total');
-  displayPrice.innerHTML = `Total Price : ${totalPrice}€`;
+  if (difference < 0) {
+    displayPrice.innerHTML = `Total Price : `;
+  } else if (difference < 7) {
+    displayPrice.innerHTML = `Total Price : ${totalPrice}€`;
+  } else {
+    displayPrice.innerHTML = `Total Price : ${totalPrice - (totalPrice * 0.1)}€`;
+  }
+
+  const displayStay = document.querySelector('#stay-day');
+  if (difference < 0) {
+    displayStay.innerHTML = `Number of days :`;
+  } else {
+    displayStay.innerHTML = `Number of days : ${difference}`;
+  }
+
+  const displayDiscount = document.querySelector('#discount-stay');
+  if (difference < 7) {
+    displayDiscount.innerHTML = `Discount for long stay : 0 €`;
+  } else {
+    displayDiscount.innerHTML = `Discount for long stay : ${(totalPrice * 0.1).toFixed(2)} €`;
+  }
 
 });
 
 // Day End
 document.querySelector('#booking_end_date_3i').addEventListener("change", function () {
   const pricePerDayString = document.getElementById('price-per-day').innerText;
-  const pricePerDay = parseInt(pricePerDayString);
+  const pricePerDay = parseInt(pricePerDayString).toFixed(2);
 
   const selectYearStart = document.querySelector('#booking_start_date_1i').value;
   const selectMonthStart = document.querySelector('#booking_start_date_2i').value;
@@ -167,11 +222,33 @@ document.querySelector('#booking_end_date_3i').addEventListener("change", functi
   const input = this.value;
   const endDate = new Date(`${selectYearEnd}-${selectMonthEnd}-${input}`);
 
-  const difference = Math.round(endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24);
+  const difference = Math.round(endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24).toFixed(2);
 
   const totalPrice = difference * pricePerDay;
-  console.log(totalPrice);
 
   const displayPrice = document.querySelector('#price-total');
-  displayPrice.innerHTML = `Total Price : ${totalPrice}€`;
+  if (difference < 0) {
+    displayPrice.innerHTML = `Total Price : `;
+  } else if (difference < 7) {
+    displayPrice.innerHTML = `Total Price : ${totalPrice}€`;
+  } else {
+    displayPrice.innerHTML = `Total Price : ${totalPrice - (totalPrice * 0.1)}€`;
+  }
+
+  const displayStay = document.querySelector('#stay-day');
+  if (difference < 0) {
+    displayStay.innerHTML = `Number of days :`;
+  } else {
+    displayStay.innerHTML = `Number of days : ${difference}`;
+  }
+
+  const displayDiscount = document.querySelector('#discount-stay');
+  if (difference < 7) {
+    displayDiscount.innerHTML = `Discount for long stay : 0 €`;
+  } else {
+    displayDiscount.innerHTML = `Discount for long stay : ${(totalPrice * 0.1).toFixed(2)} €`;
+  }
+
 });
+
+// DayEnd + 1
