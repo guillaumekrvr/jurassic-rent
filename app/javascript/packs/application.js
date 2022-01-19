@@ -24,6 +24,12 @@ ActiveStorage.start()
 // External imports
 import "bootstrap";
 
+// Star Rating
+import { initStarRating } from '../plugins/init_star_rating';
+
+initStarRating();
+
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -204,7 +210,6 @@ document.querySelector('#booking_end_date_2i').addEventListener("change", functi
   } else {
     displayDiscount.innerHTML = `Discount for long stay : ${(totalPrice * 0.1).toFixed(2)} €`;
   }
-
 });
 
 // Day End

@@ -1,14 +1,12 @@
 <div class ="container-general">
-  <div class="cover mb-4 d-flex align-items-center justify-content-center">
-    <div class="text-center">
-      <h1>New review <%= @animal.name %></h1>
+  <div class="container py-5">
+    <h1>New review <%= @animal.name %></h1>
+    <div class="container py-3">
+      <%= simple_form_for [ @animal, @review ] do |f| %>
+        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+        <%= f.input :comment %>
+        <%= f.submit "Send your review" %>
+      <% end %>
     </div>
   </div>
-
-  <div class="container py-3">
-    <%= simple_form_for [ @animal, @review ] do |f| %>
-      <%= f.input :rating %>
-      <%= f.input :comment %>
-      <%= f.button :submit, class: "btn-flat" %>
-    <% end %>
-  </div>
+</div>
