@@ -1,44 +1,37 @@
 <div class="main-container">
   <div class="container py-5">
-      <div class="container-ariane">
-          <p class="btn btn-ariane"> <%= link_to 'back to list', animals_path%></p>
-      </div>
+    <p class="btn btn-ariane"> <%= link_to 'back to list', animals_path%></p>
+    <div class="info-title-animal align-items-center">
+        <h1> <%= @animal.name %> </h1>
+    </div>
+
     <div class="info-detail-animal">
       <div class="col-md-5">
-        <div class="picture-animal-center">
-          <% @animal.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, :radius => 20 %>
-          <% end %>
+        <div id="carousel" class="picture-animal-center" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <% @animal.photos.each do |photo| %>
+              <div class="carousel-item active">
+              <%# <img src="..." class="d-block w-100" alt="..."> %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, :radius => 20 %>
+              </div>
+            <% end %>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+          </div>
         </div>
         <div class="container-actions-show">
           <p class="btn btn-flat"> <%= link_to 'Book this animal', new_animal_booking_path(@animal)%> </p>
-  <%#         <%= link_to 'edit this animal', edit_animal_path%>
-  <%#
-          <%= link_to "Delete",
-                      animal_path(@animal),
-                      method: :delete,
-                      data: { confirm: "Are you sure?" } %>
-
         </div>
       </div>
 
       <div class="col-md-7">
         <div class="description-animal">
-          <div class="info-detail-animal">
-            <i class="fas fa-signature"></i>
-            <div class="animal-question-answer">
-              <h3> What is my name?</h3>
-              <p> <%= @animal.name %> </p>
-            </div>
-          </div>
-
-          <div class="info-detail-animal">
-            <i class="fas fa-signature"></i>
-            <div class="animal-question-answer">
-              <h3> More about me?</h3>
-              <p> <%= @animal.description %></p>
-            </div>
-          </div>
 
           <div class="info-detail-animal">
             <i class="fas fa-signature"></i>
@@ -72,6 +65,15 @@
             </div>
           </div>
 
+
+          <div class="info-detail-animal">
+            <i class="fas fa-signature"></i>
+            <div class="animal-question-answer">
+              <h3> More about me?</h3>
+              <p> <%= @animal.description %></p>
+            </div>
+          </div>
+
           <div class="info-detail-animal">
             <i class="fas fa-signature"></i>
             <div class="animal-question-answer">
@@ -82,23 +84,20 @@
 
           <div class="card-renter">
             <h2>Few reviews from previous renters</h2>
-              <% if @animal.reviews.empty? %>
-                <p class="btn btn-ariane"><%= link_to 'Be the first one to review this list', new_animal_review_path(@animal) %></p>
+            <% if @animal.reviews.empty? %>
+              <p class="btn btn-add-review"><%= link_to 'Be the first one to review this list', new_animal_review_path(@animal) %></p>
+            <% else %>
+              <% @animal.reviews.each do |review| %>
 
-              <% else %>
-                <% @animal.reviews.each do |review| %>
-
-                  <%# <% review.rating.times do %>
-                    <%# <%= <i class="fas fa-star star-yellow"></i> %>
-                  <%# <% end %>
-
-                  <%= review.comment %>
+                <% review.rating&.times do %>
+                  <i class="star-card fas fa-star"></i>
                 <% end %>
+                <p class="comment-review"> <%= review.comment %> </p>
+              <% end %>
             <% end %>
           </div>
         </div>
-
       </div>
     </div>
- </div>
+  </div>
 </div>

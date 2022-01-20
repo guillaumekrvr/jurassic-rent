@@ -33,15 +33,25 @@
 }
 
 
-// .btn-ariane > a {
-//   font-size: 10px;
-//   text-decoration-color: black;
-
+.btn-ariane > a {
+  font-size: 13px;
+  color: black;
+  text-decoration: none;
+}
 .button-log-in {
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
   background: #e64023;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-add-review > a {
+  color: black;
+  padding: 8px 24px;
+  border-radius: 4px;
+  border-color: black;
   transition: background 0.3s ease;
   text-decoration: none;
 }
