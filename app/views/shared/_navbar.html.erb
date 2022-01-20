@@ -1,15 +1,27 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
-    <%= image_tag "Jurassic-rent.png" %> Jurassic Rent
-</a>
+      <%= image_tag "Jurassic-rent.png" %> Jurassic Rent
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-iconn"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <%= link_to 'Log In', user_session_path, class:"nav-link" %>
-
-    </div>
   </div>
+
+          <% if current_user %>
+      <a data-toggle="dropdown">
+          <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/njambon">
+      </a>
+  <ul>
+        <div class="dropdown-menu dropdown-menu-lg-right dropdown">
+          <%= link_to "My Bookings", bookings_path, class: "dropdown-item" %>
+          <%= link_to "My Animals", animals_path, class: "dropdown-item" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+  </ul>
+          <% else %>
+          <%= link_to "Log in", user_session_path, class: "dropdown-item-login" %>
+          <% end %>
+
 </div>

@@ -13,8 +13,12 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @animal = Animal.find(params[:animal_id])
     @review.animal = @animal
-    @review.save!
-    redirect_to animal_path(@animal.id)
+    if @review.save
+      redirect_to animal_path(@animal.id)
+    else
+      flash[:alert] = "Something went wrong."
+      render :new
+    end
   end
 
   # def edit
@@ -32,6 +36,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:review, :comment, :rating)
+    params.require(:review).permit(:rating, :comment)
   end
 end

@@ -32,7 +32,16 @@
   color: gray;
 }
 
-.btn-ariane > a {
-  font-size: 10px;
-  text-decoration-color: black;
+
+// .btn-ariane > a {
+//   font-size: 10px;
+//   text-decoration-color: black;
+
+.button-log-in {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #e64023;
+  transition: background 0.3s ease;
+  text-decoration: none;
 }
