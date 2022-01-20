@@ -3,8 +3,14 @@
   color: white;
   font-size: 90px ;
   font-weight: bold;
-  text-decoration: none;
+  text-decoration: none !important;
 }
+
+.centered-text-img:hover {
+  color: white;
+  opacity: 0.5;
+}
+
 .centered-p-img {
   color: white;
   font-size: 20px ;

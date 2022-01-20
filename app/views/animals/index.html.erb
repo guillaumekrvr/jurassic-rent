@@ -1,7 +1,16 @@
 <div class="main-container py-5">
-
   <div class="container-animal">
 
+
+        <%= form_tag animals_path, method: :get do %>
+          <div class="search-form-control form-group">
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find the animal of your nights" %>
+            <%= submit_tag "Search", class: "btn btn-flat" %>
+          </div>
+        <% end %>
     <div class="card-animal">
 
       <div class="card-img">
