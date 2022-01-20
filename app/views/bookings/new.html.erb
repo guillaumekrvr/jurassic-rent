@@ -1,16 +1,48 @@
 <div class="container-general">
-  <div class ="container py-5">
+  <div class ="container booking-new-container py-5">
     <div class="row">
         <div class="col-12 col-md-6 offset-lg-3">
           <h1>Make a booking for <%= @animal.name %></h1>
+          <h3>Description</h3>
           <p><%= @animal.specie %></p>
-          <p><%= @animal.description %></p>
             <%= simple_form_for [ @animal, @booking ] do |f| %>
-              <%= f.input :start_date %>
-              <%= f.input :end_date %>
+              <p id="beg-date" class="start-date"><%= f.input :start_date %></p>
+              <p class="end-date"><%= f.input :end_date %></p>
               <%= f.button :submit, class: "btn-flat" %>
             <% end %>
         </div>
     </div>
+        <div class="price-card">
+          <div class="picture-description">
+            <div class="picture-before-booking">
+              <% @animal.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 100, width: 150, crop: :fill, :radius => 20 %>
+                <% end %>
+            </div>
+            <div class="description-before-booking">
+              <%= @animal.name %></h1>
+              <p><%= @animal.description %></p>
+            </div>
+          </div>
+            <hr>
+            <div class="price-update-live">
+              <h3>Détails du prix</h3>
+              <p id="price-per-day"><%= @animal.price_per_day %> € / Day</p>
+              <p id="stay-day"> Number of days :</p>
+              <p id="discount-stay"> Discount for long stay :</p>
+              <p id="price-total"> Total Price :</p>
+            </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+
+
+        <div class="card-renter">
+          <h2>Few reviews from previous renters</h2>
+          <% @animal.reviews.each do |review| %>
+            <%= review.rating %>
+          <% end %>
+        </div>
