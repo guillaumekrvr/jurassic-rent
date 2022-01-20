@@ -41,10 +41,12 @@
 }
 
 .dropdown-item-login {
-  width: 6%;
+  width: 11%;
   text-decoration: none;
 }
 
 .dropdown-item-login {
-  text-decoration: none;
+  text-decoration: none !important;
+  color:#4A4A4A;
+  font-size: 16px;
 }
