@@ -9,19 +9,20 @@
         <% end %>
 
         <div class="card-info">
-          <h2><%=link_to animal.name, animal_path(animal) %></h2>
-          <p> Taille :<%= animal.size %> cm </p>
-          <p><%= animal.description %></p>
-          <p><%= animal.price_per_day %>€</p>
-          <p><%= animal.specie %></p>
-          <p class="btn btn-danger"><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
-        </div>
+          <div class="card-text">
+            <h2><%=link_to animal.name, animal_path(animal) %></h2>
+            <p class="specie"><strong><%= animal.specie %></strong></p>
+            <p><%= animal.description %></p>
+            <p>Prix : <%= animal.price_per_day %>€</p>
+          </div>
+            <p class="btn btn-danger"><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
+          </div>
       </div>
     <% end %>
   </div>
 
   <div id="map"
-      style="width: 100%; height: 600px;"
+      style="width: 100%; height: 100vh;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
