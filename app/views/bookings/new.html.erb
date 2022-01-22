@@ -17,7 +17,7 @@
             <% end %>
         </div>
         <div class="description-before-booking">
-          <%= @animal.name %></h1>
+          <strong><%= @animal.name %></h1></strong>
           <p><%= @animal.description %></p>
         </div>
       </div>
@@ -35,8 +35,8 @@
 <div class="card-renter">
   <% @animal.reviews.each do |review| %>
     <div class="card-review">
-      <p class="review-comment"><%= review.comment %></p>
       <p class="review-rating-number"><%= review.rating %></p>
+      <p class="review-comment"><%= review.comment %></p>
     </div>
     <% end %>
 </div>
