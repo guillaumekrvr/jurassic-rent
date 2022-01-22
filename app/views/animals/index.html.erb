@@ -2,6 +2,9 @@
 
   <div class="container-animal">
   <%= form_tag animals_path, method: :get do %>
+        <%if params[:me].present? %>
+        <p></p>
+        <%else %>
           <div class="search-form-control form-group-index">
             <%= text_field_tag :query,
               params[:query],
@@ -9,6 +12,7 @@
               placeholder: "Find the dino of your nights" %>
             <%= submit_tag "Search", class: "btn btn-flat" %>
           </div>
+        <% end %>
         <% end %>
     <% @animals.each do |animal| %>
       <div class="card-animals">
