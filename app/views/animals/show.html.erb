@@ -82,13 +82,14 @@
             </div>
           </div>
 
-          <div class="card-renter">
+          <div class="card-review-section">
             <% if @animal.reviews.empty? %>
               <p class="btn btn-add-review"><%= link_to 'Be the first one to review this list', new_animal_review_path(@animal) %></p>
             <% else %>
             <h2>
               <%= pluralize @animal.reviews.size, "review" %> from past renters
             </h2>
+
               <% @animal.reviews.each do |review| %>
                 <% review.rating&.times do %>
                   <%# <i class="star-card fas fa-star"></i> %>
