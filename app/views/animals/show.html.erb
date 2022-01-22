@@ -25,7 +25,7 @@
           </a>
         </div>
         <div class="container-actions-show">
-          <p class="btn btn-flat"> <%= link_to 'Book this animal', new_animal_booking_path(@animal)%> </p>
+          <p class="btn btn-flat"> <%= link_to "Book #{@animal.name}", new_animal_booking_path(@animal)%> </p>
         </div>
       </div>
       </div>
