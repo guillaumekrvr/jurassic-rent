@@ -26,6 +26,7 @@ import "bootstrap";
 
 // Star Rating
 import { initStarRating } from '../plugins/init_star_rating.js';
+import { starsRating } from '../plugins/insert_stars_in_bookings.js';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -34,6 +35,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initStarRating();
+  starsRating();
   if (document.getElementById('price-per-day') != null) {
     updatePrice();
   }
