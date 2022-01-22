@@ -12,9 +12,8 @@
       <div class="card-booking">
         <h2><%= booking.animal.name %></h2>
         <p><%= booking.animal.description %></p>
-        <p><%= booking.animal.photos.first %></p>
-        <p><%= booking.status %></p>
-        <p>Price paid : <%= booking.price_booking %>€</p>
+
+        <br>
         <p>Start date : <%= booking.start_date %></p>
         <p>End date : <%= booking.end_date %></p>
         <p class="btn-flat"><%= link_to 'Add a review', new_animal_review_path(booking.animal) %> </p>

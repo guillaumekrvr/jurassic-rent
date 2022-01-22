@@ -212,6 +212,7 @@ function updatePrice() {
       displayDiscount.innerHTML = `Discount for long stay : ${(totalPrice * 0.1).toFixed(2)} €`;
     }
 
+    console.log('coucou');
   });
 };
 // DayEnd + 1

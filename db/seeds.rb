@@ -46,7 +46,7 @@ user = User.new(
 user.save!
 puts "User saved"
 
-animal = Animal.create(name: 'Léonce',age: '1784',specie: 'Spinosaure',diary: 'Carnivore',description: 'Malgré ses longues dents et son regard menacant, vous allez adorer passer du temps avec Léonce. Il est très joueur (surtout avec les enfants)',address: '6 Rue Montcalm, Paris',price_per_day: '198',size: '1800',user: user)
+animal = Animal.create(name: 'Léonce',age: '1784',specie: 'Spinosaure',diary: 'Carnivore',description: 'Il est très joueur (surtout avec les enfants)',address: '6 Rue Montcalm, Paris',price_per_day: '198',size: '1800',user: user)
 animal.save!
 puts 'Animal saved'
 
@@ -62,7 +62,7 @@ Animal.create(name: 'Jack',age: '6410',specie: 'Acrocanthosaurus',diary: 'Carniv
 animal.save!
 puts 'Animal saved'
 
-Animal.create(name: 'Léna',age: '374',specie: 'Therizinosaurus',diary: 'Carnivore',description: 'Vous allez adorer le promener avec vos enfants dans les parcs !',address: '10 Rue du Caire, 75002, Paris',price_per_day: '125',size: '1832',user: user)
+Animal.create(name: 'Léna',age: '374',specie: 'Therizinosaurus',diary: 'Carnivore',description: 'Vous allez adorer le promener dans les parcs !',address: '10 Rue du Caire, 75002, Paris',price_per_day: '125',size: '1832',user: user)
 animal.save!
 puts 'Animal saved'
 
@@ -74,15 +74,15 @@ Animal.create(name: 'Guillaume',age: '1533',specie: 'Apatosaure',diary: 'Omnivor
 animal.save!
 puts 'Animal saved'
 
-Animal.create(name: 'Nathan',age: '7352',specie: 'Ceratosaurus',diary: 'Omnivore',description: 'Nathan est THE dinosaure pour jouer une partie de foot',address: 'Berlin, Allemagne',price_per_day: '43',size: '2945',user: user)
+Animal.create(name: 'Nathan',age: '7352',specie: 'Ceratosaurus',diary: 'Omnivore',description: 'Nathan est THE dinosaure pour jouer',address: 'Berlin, Allemagne',price_per_day: '43',size: '2945',user: user)
 animal.save!
 puts 'Animal saved'
 
-Animal.create(name: 'Sador',age: '4371',specie: 'Carnotaure',diary: 'Omnivore',description: 'Un carnotaure comme on en fait plus.. Très rare et demandé',address: 'Rome, Italie',price_per_day: '193',size: '3846',user: user)
+Animal.create(name: 'Sador',age: '4371',specie: 'Carnotaure',diary: 'Omnivore',description: 'Un carnotaure comme on en fait plus..',address: 'Rome, Italie',price_per_day: '193',size: '3846',user: user)
 animal.save!
 puts 'Animal saved'
 
-Animal.create(name: 'Eliott',age: '53472',specie: 'Dilophosaure',diary: 'Omnivore',description: 'Le dinosaure qui va tout déchirer pour vos soirées',address: 'Lisbonne, Portugal',price_per_day: '287',size: '6183',user: user)
+Animal.create(name: 'Eliott',age: '53472',specie: 'Dilophosaure',diary: 'Omnivore',description: 'Le dinosaure qui va tout déchirer',address: 'Lisbonne, Portugal',price_per_day: '287',size: '6183',user: user)
 animal.save!
 puts 'Animal saved'
 
@@ -102,7 +102,7 @@ Animal.create(name: 'Maria',age: '2901',specie: 'Polacanthus',diary: 'Herbivore'
 animal.save!
 puts 'Animal saved'
 
-Animal.create(name: 'Cornelius',age: '2104',specie: 'Ptéranodon',diary: 'Herbivore',description: 'Mignon et souriant pour toutes les occasions',address: 'Islamabad, Pakistan',price_per_day: '194',size: '1523',user: user)
+Animal.create(name: 'Cornelius',age: '2104',specie: 'Ptéranodon',diary: 'Herbivore',description: 'Mignon et souriant pour les occasions',address: 'Islamabad, Pakistan',price_per_day: '194',size: '1523',user: user)
 animal.save!
 puts 'Animal saved'
 
