@@ -6,7 +6,7 @@
       <%= simple_form_for [ @animal, @booking ] do |f| %>
         <p id="beg-date" class="start-date"><%= f.input :start_date %></p>
         <p class="end-date"><%= f.input :end_date %></p>
-        <%= f.button :submit, class: "btn btn-lg btn-block btn-warning" %>
+        <%= f.button :submit, class: "btn btn-lg btn-block btn-flat" %>
           <% end %>
     </div>
     <div class="price-card">
@@ -31,15 +31,14 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
-
+  <h2 class="center-title-lol">Renters <i class="fas fa-heart"></i> <%= @animal.name  %></h2>
 <div class="card-renter">
-  <h2>Few reviews from previous renters</h2>
   <% @animal.reviews.each do |review| %>
     <div class="card-review">
+      <p class="review-comment"><%= review.comment %></p>
       <p class="review-rating-number"><%= review.rating %></p>
-      <p><%= review.comment %></p>
-    <% end %>
     </div>
+    <% end %>
+</div>
+  </div>
 </div>
