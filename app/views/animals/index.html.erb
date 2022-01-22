@@ -25,7 +25,6 @@
             <p>Prix : <%= animal.price_per_day %>€</p>
           </div>
           <%if params[:me].present? %>
-
           <p></p>
           <%else %>
             <p class="btn btn-flat"><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
