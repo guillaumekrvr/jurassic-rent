@@ -1,6 +1,15 @@
 <div class="main-container py-5">
 
   <div class="container-animal">
+  <%= form_tag animals_path, method: :get do %>
+          <div class="search-form-control form-group">
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find the animal of your nights" %>
+            <%= submit_tag "Search", class: "btn btn-flat" %>
+          </div>
+        <% end %>
     <% @animals.each do |animal| %>
       <div class="card-animals">
         <% if animal.photos.attached? %>
@@ -15,7 +24,7 @@
             <p><%= animal.description %></p>
             <p>Prix : <%= animal.price_per_day %>€</p>
           </div>
-            <p class="btn btn-danger"><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
+            <p class="btn btn-flat"><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
           </div>
       </div>
     <% end %>
