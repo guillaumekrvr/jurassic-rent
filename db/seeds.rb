@@ -7,9 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
 
+Animal.destroy_all
 Review.destroy_all
 User.destroy_all
-Animal.destroy_all
+Booking.destroy_all
 
 user = User.new(
   email: "papa@hotmail.fr",
