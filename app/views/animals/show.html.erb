@@ -1,27 +1,25 @@
 <div class="main-container">
   <div class="container py-5">
-    <p class="btn btn-ariane"> <%= link_to 'back to list', animals_path%></p>
     <div class="info-title-animal align-items-center">
         <h1> <%= @animal.name %> </h1>
     </div>
 
     <div class="info-detail-animal">
       <div class="col-md-5">
-        <div id="carousel" class="picture-animal-center" data-bs-ride="carousel">
+        <div id="my-carousel" class="picture-animal-center" data-bs-ride="carousel">
           <div class="carousel-inner">
-            <% @animal.photos.each do |photo| %>
-              <div class="carousel-item active">
-              <%# <img src="..." class="d-block w-100" alt="..."> %>
-              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, :radius => 20 %>
+            <% @animal.photos.each_with_index do |photo, index| %>
+              <div class="carousel-item <%= index.zero? ? 'active' : ''%> ">
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, radius: 20, class: 'd-block w-100' %>
               </div>
             <% end %>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <button class="carousel-control-prev" type="button" data-bs-target="#my-carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+                <span class="visually-hidden"></span>
               </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <button class="carousel-control-next" type="button" data-bs-target="#my-carousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
+                <span class="visually-hidden"></span>
               </button>
           </div>
         </div>
@@ -83,7 +81,9 @@
           </div>
 
           <div class="card-renter">
-            <h2>Few reviews from previous renters</h2>
+            <h2> Find out what
+              <%= pluralize @animal.reviews.size, "review" %>
+            </h2>
             <% if @animal.reviews.empty? %>
               <p class="btn btn-add-review"><%= link_to 'Be the first one to review this list', new_animal_review_path(@animal) %></p>
             <% else %>

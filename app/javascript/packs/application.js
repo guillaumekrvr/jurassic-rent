@@ -69,8 +69,10 @@ function yearStart () {
   }
 };
 
-document.querySelector('#booking_start_date_1i').addEventListener("change", yearStart);
-
+const bookingStartDate = document.querySelector('#booking_start_date_1i');
+if (bookingStartDate) {
+  bookingStartDate.addEventListener("change", yearStart);
+}
 // Month Start
 document.querySelector('#booking_start_date_2i').addEventListener("change", function () {
   const pricePerDayString = document.getElementById('price-per-day').innerText;
