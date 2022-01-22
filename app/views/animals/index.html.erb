@@ -2,7 +2,7 @@
 
   <div class="container-animal">
   <%= form_tag animals_path, method: :get do %>
-          <div class="search-form-control form-group">
+          <div class="search-form-control form-group-index">
             <%= text_field_tag :query,
               params[:query],
               class: "form-control",
@@ -24,6 +24,7 @@
             <p><%= animal.description %></p>
             <p>Prix : <%= animal.price_per_day %>€</p>
           </div>
+
           <%if params[:me].present? %>
           <p></p>
           <%else %>

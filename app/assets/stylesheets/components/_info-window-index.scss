@@ -1,14 +1,45 @@
 .card-window-container {
   width: 175px;
-  border-radius: 5x;
+  border-radius: 10x;
 }
 
 .card-info-window {
   font-size: 12px;
-  line-height: 0.5;
-  opacity: .7;
+  line-height: 1;
   margin-bottom: 5px;
-  margin-top: 5px;
-  padding: 16px;
   margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info-window .img-popup {
+  height: 100%;
+  width: 175px;
+  object-fit: cover;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+.mapboxgl-popup-content {
+    position: relative;
+    background: #fff;
+    border-radius: 3px;
+    pointer-events: auto;
+    padding: 0px !important;
+}
+
+.btn-flat-index {
+    color: white;
+    padding: 8px 24px;
+    border-radius: 4px;
+    background: #e64023;
+    transition: background 0.3s ease;
+    text-decoration: none;
+    font-weight: bold;
+    width: 90px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    a {
+      color: white;
+    }
 }

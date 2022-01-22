@@ -1,13 +1,20 @@
 <div class= card-window-container >
 
 
-  <div class="card-info-window">
-    <h2><%=link_to animal.name, animal_path(animal) %></h2>
-    <p class="specie"><strong><%= animal.specie %></strong></p>
-    <p><%= animal.description %></p>
-    <br>
-    <p>Prix : <%= animal.price_per_day %>€</p>
 
+  <div class="card-info-window">
+    <div class ="img-popup">
+      <% if animal.photos.attached? %>
+        <img class="img-popup" src= <%= cl_image_path animal.photos.first&.key %> alt="">
+      <% end  %>
+    </div>
+    <div class="text-popup">
+      <h2><%=link_to animal.name, animal_path(animal) %></h2>
+      <p class="specie"><strong><%= animal.specie %></strong></p>
+      <p><%= animal.description %></p>
+      <br>
+      <p>Prix : <%= animal.price_per_day %>€</p>
+    </div>
   </div>
-  <p class="btn btn-danger"><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
+    <p class="btn btn-flat-index"><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
 </div>
