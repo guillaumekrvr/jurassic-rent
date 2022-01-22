@@ -32,7 +32,7 @@
 .background-img-banner {
   background-image: asset-url("Jurassic-rent-home-banner.jpg");
   height: 900px;
-  opacity: 5;
+  filter: contrast(1.5);
 }
 
 .search-form-control {
