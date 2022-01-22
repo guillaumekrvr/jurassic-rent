@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
 
+
 Booking.destroy_all
 Review.destroy_all
 Animal.destroy_all
