@@ -16,7 +16,7 @@
   border-radius: 5px;
   display: flex;
   align-items: center;
-  height: 200px;
+  height: 210px;
 }
 
 .card-animals:hover {
@@ -26,7 +26,6 @@
 .card-info {
   font-size: 12px;
   line-height: 1.5;
-  opacity: .7;
   margin-bottom: 5px;
   margin-top: 5px;
   padding: 16px;
@@ -36,6 +35,22 @@
   p {
     margin: 0px;
   }
+  .btn-flat-index {
+    color: white;
+    padding: 8px 24px;
+    border-radius: 4px;
+    background: #e64023;
+    transition: background 0.3s ease;
+    text-decoration: none;
+    font-weight: bold;
+    width: 90px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    a {
+      color: white;
+    }
+
+}
 }
 
 
@@ -75,6 +90,7 @@ a {
 a:hover {
   text-decoration: none;
   color: black;
+  box-shadow: 20px;
 }
 
 h2 > a:hover {
