@@ -1,10 +1,17 @@
 .picture-animal-center {
   text-align: center;
-  margin-top: 85px;
+  margin-top: 55px;
 }
 
 .description-animal {
-  margin-top: 50px;
+  margin-top: 25px;
+  width: 100%;
+  position: relative;
+  margin: .5rem 0 1rem 0;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  padding: 15px;
 }
 
 .fa-signature {
@@ -37,4 +44,47 @@
   background-color: inherit;
   border-top: 1px solid rgba(160,160,160,0.2);
   padding: 16px 24px;
+}
+
+.info-title-animal {
+  padding: 2px 24px;
+}
+
+.info-title-animal h1 {
+  font-size: 3rem;
+  text-align: center;
+  font-size: 60px;
+}
+
+.comment-review {
+  opacity: .5;
+  font-size: 15px;
+  font-style: italic;
+  padding-bottom: 5px;
+}
+
+.star-card {
+  color: rgb(247, 44, 44);
+}
+.fas {
+  color: rgb(247, 44, 44);
+}
+.info-animal {
+  position: -webkit-sticky; /* Safari */
+  position: sticky !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  display: inline-block !important;
+  padding-right: 1px !important;
+}
+
+.carousel-item {
+  background-position: cover;
+}
+
+
+.info-image-sticky {
+  position : sticky;
+  top: 150px;
+  left: 150px;
 }

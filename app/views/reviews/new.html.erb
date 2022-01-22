@@ -5,13 +5,30 @@
       <h1>Write your review for <%= @animal.name %></h1>
     </div>
     </div>
-      <div class="picture-animal-center">
-          <% @animal.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, :radius => 20 %>
-          <% end %>
+    <div class="picture-animal-center">
+      <div class="cover mb-4 d-flex align-items-center justify-content-center">
+        <div class="text-center">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <% @animal.photos.each_with_index do |photo, index| %>
+              <div class="carousel-item <%= index.zero? && 'active'%> ">
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, radius: 20, class: 'd-block w-100' %>
+              </div>
+            <% end %>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+          </a>
           <p><%= @animal.specie %></p>
+        </div>
+        </div>
       </div>
-
+    </div>
     <div class="container py-3">
       <%= simple_form_for [ @animal, @review ] do |f| %>
         <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
