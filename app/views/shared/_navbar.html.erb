@@ -10,13 +10,15 @@
   </div>
 
           <% if current_user %>
+          <%= link_to "Propose a dino", new_animal_path, class: "dropdown-item-login" %>
+          <%= link_to "Find your dino", animals_path, class: "dropdown-item-login" %>
       <a data-toggle="dropdown">
           <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/njambon">
       </a>
   <ul>
         <div class="dropdown-menu dropdown-menu-lg-right dropdown">
           <%= link_to "My Bookings", bookings_path, class: "dropdown-item" %>
-          <%= link_to "My Animals", animals_path, class: "dropdown-item" %>
+          <%= link_to "My Animals", users_animals_path(me: true), class: "dropdown-item" %>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
   </ul>

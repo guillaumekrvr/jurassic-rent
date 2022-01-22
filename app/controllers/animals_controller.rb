@@ -3,7 +3,9 @@ class AnimalsController < ApplicationController
   before_action :find_animal, only: %i[update destroy show edit]
 
   def index
-    if params[:query].present?
+    if params[:me].present?
+      @animals = Animal.all.where(user_id: current_user)
+    elsif params[:query].present?
       @animals = Animal.search_by_name_and_address(params[:query])
     else
       @animals = Animal.all
