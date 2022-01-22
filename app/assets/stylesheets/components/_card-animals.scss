@@ -1,0 +1,83 @@
+.container-animal {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.card-animals {
+  width: 500px;
+  background-color: white;
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  height: 200px;
+}
+
+.card-animals:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-info {
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: .7;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 16px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  p {
+    margin: 0px;
+  }
+}
+
+
+.card-text {
+  margin-bottom: 30px;
+}
+
+
+.card-text p {
+  font-size: 15px;
+  line-height: 1,2;
+  color: black;
+}
+
+.card-animals .card-img {
+  height: 100%;
+  width: 200px;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-text > h2 {
+  color: black;
+}
+
+.index-title {
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+a {
+  color:black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+h2 > a:hover {
+  text-decoration: none;
+  color: black;
+}

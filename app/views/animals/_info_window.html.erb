@@ -1,3 +1,13 @@
-<h2><%= animal.name %></h2>
-<p><%= animal.price_per_day %></p>
-<p><%= animal.diary %></p>
+<div class= card-window-container >
+
+
+  <div class="card-info-window">
+    <h2><%=link_to animal.name, animal_path(animal) %></h2>
+    <p class="specie"><strong><%= animal.specie %></strong></p>
+    <p><%= animal.description %></p>
+    <br>
+    <p>Prix : <%= animal.price_per_day %>€</p>
+
+  </div>
+  <p class="btn btn-danger"><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
+</div>

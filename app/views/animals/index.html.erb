@@ -1,8 +1,7 @@
 <div class="main-container py-5">
+
   <div class="container-animal">
-
-
-        <%= form_tag animals_path, method: :get do %>
+  <%= form_tag animals_path, method: :get do %>
           <div class="search-form-control form-group">
             <%= text_field_tag :query,
               params[:query],
@@ -11,30 +10,28 @@
             <%= submit_tag "Search", class: "btn btn-flat" %>
           </div>
         <% end %>
-    <div class="card-animal">
+    <% @animals.each do |animal| %>
+      <div class="card-animals">
+        <% if animal.photos.attached? %>
+          <div class="card-img" style="background-image: url('<%= cl_image_path animal.photos.first&.key %>')">
+          </div>
+        <% end %>
 
-      <div class="card-img">
-          <% @animals.each do |animal| %>
-          <% animal.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill %>
-          <% end %>
+        <div class="card-info">
+          <div class="card-text">
+            <h2><%=link_to animal.name, animal_path(animal) %></h2>
+            <p class="specie"><strong><%= animal.specie %></strong></p>
+            <p><%= animal.description %></p>
+            <p>Prix : <%= animal.price_per_day %>€</p>
+          </div>
+            <p class="btn btn-flat"><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
+          </div>
       </div>
-
-      <div class="card-info">
-          <p><%=link_to animal.name, animal_path(animal) %></p>
-          <p> Taille :<%= animal.size %> cm </p>
-          <p><%= animal.description %></p>
-          <p><%= animal.price_per_day %>€</p>
-          <p><%= animal.specie %></p>
-          <p><%= link_to 'Book', new_animal_booking_path(animal) %> </p>
-          <% end %>
-      </div>
-      <hr style="width:50%;text-align:left;margin-left:0">
-    </div>
+    <% end %>
   </div>
 
   <div id="map"
-      style="width: 100%; height: 600px;"
+      style="width: 100%; height: 100vh;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
