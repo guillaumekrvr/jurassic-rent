@@ -69,3 +69,22 @@
 .fas {
   color: rgb(247, 44, 44);
 }
+.info-animal {
+  position: -webkit-sticky; /* Safari */
+  position: sticky !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  display: inline-block !important;
+  padding-right: 1px !important;
+}
+
+.carousel-item {
+  background-position: cover;
+}
+
+
+.info-image-sticky {
+  position : sticky;
+  top: 150px;
+  left: 150px;
+}
